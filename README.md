@@ -1,7 +1,7 @@
 # VCF to GDS Conversion
 ### Description of VCF to GDS conversion on the UK Biobank RAP for STAAR processing
 
-Due to the vcf file sizes on the DNAnexus platform (especially WGS), it may be necessary to reduce the amount of data contained within VCFs if wanting to merge all VCFs associated with a chromosome on a workstation for subsequent STAAR annotation and processing. Some applets have been provided that may help facilitate this process
+Due to the vcf file sizes on the DNAnexus platform (especially WGS), it may be necessary to reduce the amount of data contained within VCFs if wanting to merge all VCFs associated with a chromosome on a workstation for subsequent STAAR annotation and processing. Some applets are provided here that may help facilitate this process.
 
 ### Step 1: Trimming down data in the VCFs
 See [here](https://github.com/drarwood/vcf_trimmer) for applet that removes fields and performs required filtering through bcftools.
