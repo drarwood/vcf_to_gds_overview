@@ -43,3 +43,4 @@ The output file should be subsequently uploaded to the RAP for processing with [
 
 ### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the STAAR pipeline.
 See [`vcf2gds`](https://github.com/drarwood/vcf2gds). This applet comes with an R library that will be unpacked during runtime and used for data conversion.
+
