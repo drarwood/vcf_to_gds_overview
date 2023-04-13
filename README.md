@@ -22,14 +22,14 @@ then the command would look something like this (note priority set to high):
 ```
 for i in {1..100}
 do
-    dx run /path/to/vcf_trimmer \
-        -ivcf_file_list=/path/to/chr17_vcf_list_${i} \
-        -ifile_label=trimmed \
-        -ioutput_dir=/path/to/output/dir \
-        -iqc_thresholds="INFO/AAScore>=0.5" \
-        -ifields_to_remove="FORMAT/FT,FORMAT/AD,FORMAT/MD,FORMAT/DP,FORMAT/RA,FORMAT/PP,FORMAT/GQ,FORMAT/PL" \
-        --priority high \
-        -y
+  dx run /path/to/vcf_trimmer \
+    -ivcf_file_list=/path/to/chr17_vcf_list_${i} \
+    -ifile_label=trimmed \
+    -ioutput_dir=/path/to/output/dir \
+    -iqc_thresholds="INFO/AAScore>=0.5" \
+    -ifields_to_remove="FORMAT/FT,FORMAT/AD,FORMAT/MD,FORMAT/DP,FORMAT/RA,FORMAT/PP,FORMAT/GQ,FORMAT/PL" \
+    --priority high \
+    -y
 done
 ```
 
