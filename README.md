@@ -8,13 +8,27 @@ See [here](https://github.com/drarwood/vcf_trimmer) for applet that removes fiel
 This applet takes in a list of files as an input to process. This applet could be used across multiple jobs submitted on the DNAnexus platform which would require unique lists of VCFs to be split. 
 #### Example: Processing a chromosome over 100 jobs
 ##### Generating the input files:
-You may want to process the 200K WGS data release, chromosome at a time. This would require a list of VCFs associated with that chromosome. 
+If you wanted to process the 200K WGS data release for a given chromosome then `vcf_trimmer` would require a list of VCFs associated with that chromosome. 
 Furthermore, you may also want to submit 100 jobs whereby the list of VCFs associated with that chromosome is split into 100 unique and equally sized VCF lists.
 Running the `get_vcf_file_list_by_chr_and_split.sh` bash script in this repo will produce the relevant input files for each chromosome for all 60,648 VCFs currently available.
 Note, these files will need to be subsequently uploaded to a project folder on the DNAnexus platform.
 ##### Example: Submitting the jobs
-Once you have a set of 100 files listing the VCFs, you can run the `vcf_trimmer` with each of the files generated above for a given chromosome. For example, if we wanted to run chromosome 17
-
+Once you have a set of 100 files listing the VCFs, you can run the `vcf_trimmer` with each of the files generated above for a given chromosome. 
+For example, if we wanted to run chromosome 17 to remove FORMAT fields and keep only variants with an AA score >= 0.5, then we could run the following (note priority set to high):
+ 
+```
+for i in {1..100}
+do
+    dx run /path/to/vcf_trimmer \
+        -ivcf_file_list=/path/to/chr17_vcf_list_${i} \
+        -ifile_label=trimmed \
+        -ioutput_dir=/path/to/output/dir \
+        -iqc_thresholds="INFO/AAScore>=0.5" \
+        -ifields_to_remove="FORMAT/FT,FORMAT/AD,FORMAT/MD,FORMAT/DP,FORMAT/RA,FORMAT/PP,FORMAT/GQ,FORMAT/PL" \
+        --priority high \
+        -y
+done
+```
 
 ### Step 2: Merging VCFs
 See [here](https://github.com/drarwood/vcf_merger). Another applet wrapper for bcftools.
