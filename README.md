@@ -35,6 +35,11 @@ done
 
 ### Step 2: Merging VCFs
 See [here](https://github.com/drarwood/vcf_merger). Another applet wrapper for bcftools.
+This applet also takes in a list of VCF files. Continuing the example above, to obtain a list of files in block order of a directory on the RAP for chromosome 17 after running `vcf_trimmer`, type:
+```
+dx ls "/path/to/output/dir/ukb24304_c17_b*_v1_trimmed.vcf.gz" | sort -t"b" -k3.1 -n | awk -v d="/path/to/output/dir" '{print d $0}' > chr17_vcfs_to_merge
+```
+The output file should be subsequently uploaded to the RAP for processing with `vcf_merger`
 
 ### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the STAAR pipeline.
 See [here](https://github.com/drarwood/vcf2gds). This applet comes with an R library that will be unpacked during runtime and used for data conversion.
