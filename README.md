@@ -12,7 +12,7 @@ If you wanted to process the 200K WGS data release for a given chromosome then `
 Furthermore, you may also want to submit 100 jobs whereby the list of VCFs associated with that chromosome is split into 100 unique and equally sized VCF lists.
 Running the `get_vcf_file_list_by_chr_and_split.sh` bash script in this repo will produce the relevant input files for each chromosome for all 60,648 VCFs currently available.
 Note, these files will need to be subsequently uploaded to a project folder on the DNAnexus platform.
-##### Example: Submitting the jobs
+##### Submitting the jobs
 Once you have a set of 100 files listing the VCFs, you can run the `vcf_trimmer` with each of the files generated above for a given chromosome. 
 For example, if we wanted to run chromosome 17 to remove FORMAT fields and keep only variants with an AA score >= 0.5, then we could run the following (note priority set to high):
  
