@@ -10,7 +10,7 @@ SPLITS=100
 split() {
 
   # Get chr file count
-  FILEC=`wc -l < "$1"`
+  FILEC=`wc -l < "$1" | awk '{print $1}'`
 
   # GET SIZE OF LISTS WE WILL REQUIRE BASED ON N_LINES / N_SPLITS
   LISTCOUNT1=$(($FILEC / $SPLITS))
