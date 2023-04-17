@@ -31,7 +31,7 @@ do
     -ioutput_dir=/path/to/output/dir \
     -iqc_thresholds="INFO/AAScore>=0.5" \
     -ifields_to_remove="FORMAT/FT,FORMAT/AD,FORMAT/MD,FORMAT/DP,FORMAT/RA,FORMAT/PP,FORMAT/GQ,FORMAT/PL" \
-    --priority high \
+    --priority=high \
     -y
 done
 ```
