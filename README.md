@@ -44,6 +44,6 @@ dx ls "/path/to/output/dir/ukb24304_c17_b*_v1_trimmed.vcf.gz" | sort -t"b" -k3.1
 ```
 The output file should be subsequently uploaded to the RAP for processing with [`vcf_merger`](https://github.com/drarwood/vcf_merger)
 
-### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the STAAR pipeline.
+### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the [STAARpipeline](https://doi.org/10.1038/s41592-022-01640-x).
 See [`vcf2gds`](https://github.com/drarwood/vcf2gds). This applet comes with an R library that will be unpacked during runtime and used for data conversion.
 
