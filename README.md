@@ -4,7 +4,7 @@
 Due to the vcf file sizes on the DNAnexus platform (especially WGS), it may be necessary to reduce the amount of data contained within VCFs if wanting to merge all VCFs associated with a chromosome on a workstation for subsequent STAAR annotations and processing. Some applets are provided here that may help facilitate this process.
 
 ### Step 1: Trimming down data in the VCFs
-See [vcf_trimmer](https://github.com/drarwood/vcf_trimmer) for applet that removes fields and performs required filtering through bcftools.
+See [`vcf_trimmer`](https://github.com/drarwood/vcf_trimmer) for an applet that removes fields and performs required filtering through bcftools.
 This applet takes in a list of files as an input to process. This applet could be used across multiple jobs submitted on the DNAnexus platform which would require unique lists of VCFs to be split. 
 #### Example: Processing WGS (200K) VCFs for chromosome 17 over 100 jobs:
 ##### Generating the input file lists:
