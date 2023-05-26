@@ -7,7 +7,9 @@ Some applets are provided here that may help facilitate this process. **The exam
 
 ### Step 1: Trimming down data in the VCFs
 See [`vcf_trimmer`](https://github.com/drarwood/vcf_trimmer) for an applet that removes fields and performs required filtering through bcftools.
-This applet takes in a list of files as an input to process. This applet could be used across multiple jobs submitted on the DNAnexus platform which would require unique lists of VCFs to be split. 
+This applet takes in a list of files as an input to process. This applet could be used across multiple jobs submitted on the DNAnexus platform which would require unique lists of VCFs to be split.  
+note left-alignment and normalisation not presently set.
+
 #### Example: Processing WGS (200K) VCFs for chromosome 17 over 100 jobs:
 ##### Generating the input file lists:
 If you wanted to process the 200K WGS data release for chromosome 17 then [`vcf_trimmer`](https://github.com/drarwood/vcf_trimmer) would require a list of VCFs associated with that chromosome. 
