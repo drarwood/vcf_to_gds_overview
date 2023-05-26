@@ -1,12 +1,10 @@
 # VCF to GDS Conversion
 ### Description of VCF to GDS conversion on the UK Biobank RAP for STAAR processing
 
-Due to the number of vcf files and their file sizes on the DNAnexus platform, it may be necessary to reduce the amount of data contained within VCFs 
-if wanting to merge all VCFs associated with a chromosome on a workstation for subsequent STAAR annotation and processing (especially WGS).
-Some applets are provided here that may help facilitate this process. The examples provided below focus on WGS data in UKB. Recommendations for WES data will appear here shortly.
+Due to the vcf file sizes on the DNAnexus platform (especially WGS), it may be necessary to reduce the amount of data contained within VCFs if wanting to merge all VCFs associated with a chromosome on a workstation for subsequent STAAR annotations and processing. Some applets are provided here that may help facilitate this process.
 
 ### Step 1: Trimming down data in the VCFs
-See [vcf_trimmer](https://github.com/drarwood/vcf_trimmer) for applet that removes fields and performs required filtering through bcftools.
+See [`vcf_trimmer`](https://github.com/drarwood/vcf_trimmer) for an applet that removes fields and performs required filtering through bcftools.
 This applet takes in a list of files as an input to process. This applet could be used across multiple jobs submitted on the DNAnexus platform which would require unique lists of VCFs to be split. 
 #### Example: Processing WGS (200K) VCFs for chromosome 17 over 100 jobs:
 ##### Generating the input file lists:
@@ -43,8 +41,8 @@ This applet also takes in a list of VCF files. Continuing the example above, to 
 ```
 dx ls "/path/to/output/dir/ukb24304_c17_b*_v1_trimmed.vcf.gz" | sort -t"b" -k3.1 -n | awk -v d="/path/to/output/dir" '{print d $0}' > chr17_vcfs_to_merge
 ```
-The output file should be subsequently uploaded to the RAP for processing with [`vcf_merger`](https://github.com/drarwood/vcf_merger)
+The output file should be subsequently uploaded to the RAP for processing with [`vcf_merger`](https://github.com/drarwood/vcf_merger).
 
-### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the [STAARpipeline](https://doi.org/10.1038/s41592-022-01640-x).
+### Step 3: Converting VCF to GDS for subsequent annotation/analysis in the [STAARpipeline](https://doi.org/10.1038/s41592-022-01640-x)
 See [`vcf2gds`](https://github.com/drarwood/vcf2gds). This applet comes with an R library that will be unpacked during runtime and used for data conversion.
 
